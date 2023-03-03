@@ -12,6 +12,7 @@ def add_todo():
     todo_new = st.session_state['new_todo'] + '\n'  # st.session_state是字典，'new_todo'是它的一个key
     todos.append(todo_new)
     todos_functions.put_todos(todos)
+    st.session_state['new_todo'] = ""  # 新增一个todo后清空input输入框
 
 
 # 标题部分
