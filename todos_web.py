@@ -5,6 +5,9 @@ To_Do_List Web style
 import streamlit as st  # streamlit 是开源的web前端框架
 import todos_functions
 
+# 修改page名称+增加page icon
+st.set_page_config(page_title="ToDoListApp | ZYR", page_icon= "🧀")
+
 todos = todos_functions.get_todos()
 
 
