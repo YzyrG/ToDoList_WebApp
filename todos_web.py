@@ -12,7 +12,8 @@ todos = todos_functions.get_todos()
 
 
 def add_todo():
-    todo_new = st.session_state['new_todo'] + '\n'  # st.session_state是字典，'new_todo'是它的一个key
+    # st.session_state是字典，'new_todo'是它的一个key
+    todo_new = st.session_state['new_todo'] + '\n'
     todos.append(todo_new)
     todos_functions.put_todos(todos)
     st.session_state['new_todo'] = ""  # 新增一个todo后清空input输入框
@@ -25,8 +26,8 @@ st.write("You can manage your todos in this app :)")
 
 # 显示待勾选todo
 for index, todo in enumerate(todos):
-    checkbox = st.checkbox(todo, key=todo)  # 未勾选时，key: checkbox对应的value: false
-    #  complete已勾选todo
+    checkbox = st.checkbox(todo, key=todo)
+    # 未勾选时，key: checkbox对应的value: false, 下面实现complete已勾选todo
     if checkbox:
         todos .pop(index)  # 从todos list中删去已勾选的todo
         todos_functions.put_todos(todos)
